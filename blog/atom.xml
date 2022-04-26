@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://ypy.one</id>
   <title>Just A Blog</title>
-  <updated>2022-04-26T03:18:26.920720+00:00</updated>
+  <updated>2022-04-26T08:29:21.457416+00:00</updated>
   <link href="http://ypy.one"/>
   <link href="http://ypy.one/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.25">ABlog</generator>
@@ -58,23 +58,6 @@ https://playwright.dev/python/docs/intro/安装浏览器</summary>
     <summary>我们知道2张A4纸拼在一起就是一张A3，所以A4版面的材料，可以使用A3纸张来打印，中缝装订起来，美观大方，有书籍的观感。将word导出成为pdf文档；将文件凑为偶数页面，就是说如果只有奇数页，就在最后插入一个空页面;img</summary>
     <category term="A3" label="A3"/>
     <category term="打印" label="打印"/>
-    <published>2022-03-02T00:00:00+00:00</published>
-  </entry>
-  <entry>
-    <id>http://ypy.one/posts/git/github page/</id>
-    <title>Github pages</title>
-    <updated>2022-03-02T00:00:00+00:00</updated>
-    <author>
-      <name>Yu Pengyan</name>
-    </author>
-    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
-&lt;p&gt;DNS: Add an A record point to github server.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="gh-pages-dns-records" src="../_images/gh-pages-dns-records.jpg" /&gt;&lt;/p&gt;
-&lt;img alt="gh-pages-dns-records" src="../_images/gh-pages-dns-records.jpg" /&gt;
-&lt;/div&gt;
-</content>
-    <link href="http://ypy.one/posts/git/github page/" rel="alternate"/>
-    <summary>DNS: Add an A record point to github server.gh-pages-dns-recordsgh-pages-dns-records</summary>
     <published>2022-03-02T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -302,5 +285,22 @@ Endnote Journal Article 元数据格式如下：</summary>
 img.pngNon-consecutive header level increase; 0 to 2 [myst.header]img.png</summary>
     <category term="ios" label="ios"/>
     <published>2022-03-26T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/git/github page/</id>
+    <title>Github pages</title>
+    <updated>2022-04-26T00:00:00+00:00</updated>
+    <author>
+      <name>Yu Pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;DNS: Add an A record point to github server.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="gh-pages-dns-records" src="../_images/gh-pages-dns-records.jpg" /&gt;&lt;/p&gt;
+&lt;img alt="gh-pages-dns-records" src="../_images/gh-pages-dns-records.jpg" /&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/git/github page/" rel="alternate"/>
+    <summary>DNS: Add an A record point to github server.gh-pages-dns-recordsgh-pages-dns-records</summary>
+    <published>2022-04-26T00:00:00+00:00</published>
   </entry>
 </feed>
