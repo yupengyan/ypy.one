@@ -1,0 +1,1252 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Posts &#8212; Just A Blog  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about/" />
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title=""
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../">
+<p class="title">Just A Blog</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../about/">
+  About me
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items">
+<h3><a href="tag/">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/a3/">A3</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/low-back-pain/">Low back pain</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/blog/">blog</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/bootstrap/">bootstrap</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/e-study/">e-study</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/endnote/">endnote</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/github/">github</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/ios/">ios</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/markdown/">markdown</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/nas/">nas</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/playwright/">playwright</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/plex/">plex</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/plug-ins/">plug-ins</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/pycharm/">pycharm</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/qnap/">qnap</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/rst/">rst</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/sphinx/">sphinx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/sprinx/">sprinx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/打印/">打印</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/数据/">数据</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="2022/">2022 (13)</a>
+  </li>
+    
+  <li>
+    <a href="2021/">2021 (1)</a>
+  </li>
+    
+  <li>
+    <a href="2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="category/">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="category/academic/">Academic (2)</a>
+  </li>
+    
+  <li>
+    <a href="category/health/">Health (1)</a>
+  </li>
+    
+  <li>
+    <a href="category/server/">Server (1)</a>
+  </li>
+    
+  <li>
+    <a href="category/skill/">Skill (1)</a>
+  </li>
+    
+  <li>
+    <a href="category/tech/">Tech (10)</a>
+  </li>
+   
+</ul>
+
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+
+              <div>
+                
+<div class="section">
+  <h1>
+     All  Posts 
+  </h1>
+   
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/ios/ios app 降级/"
+        >准备工作</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 26 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="tag/ios/">ios</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>#IOS App 安全降级
+此教材是利用官方app store进行降级下载，最具安全性。<br />
+<img alt="img.png" src="../_images/img.png" /></p>
+<p>Non-consecutive header level increase; 0 to 2 [myst.header]</p>
+<img alt="img.png" src="../_images/img.png" />
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/ios/ios app 降级/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/Academic/how to use endnote importing dc and fulltext /"
+        >How to import metedata and fulltext in endnote?</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 26 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/academic/">Academic</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="tag/endnote/">endnote</a>   
+  <a href="tag/e-study/">e-study</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>CNKI官方网站提供，不同格式类型的论文元数据下载。只需在CNKI系统中，搜索、选取你选择的论文，然后按导出:
+<img alt="" src="../_images/cnki_journal_article_dc_export.png" /></p>
+<p>之后你就能够获取到一个如下格式的txt文件：
+Endnote Journal Article 元数据格式如下：</p>
+<img alt="" src="../_images/cnki_journal_article_dc_export.png" />
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/Academic/how to use endnote importing dc and fulltext /"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/Academic/研究数据/"
+        >研究数据资源汇集</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 23 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/academic/">Academic</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="tag/数据/">数据</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p><a class="reference external" href="http://cgss.ruc.edu.cn/info/1014/1019.htm">中国综合社会调查 (Chinese General Social Survey,CGSS)</a></p>
+<p><a class="reference external" href="http://www.issp.org/menu-top/home/">国际社会调查项目 (International Social Survey Programme,ISSP)</a></p>
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/Academic/研究数据/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/Health/腰疼根源与判断.一个来自youtube的方法/"
+        >Low back pain test and train</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 12 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/health/">Health</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="tag/low-back-pain/">Low back pain</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>核心观点:对于慢性腰疼，没法单纯依靠使用拍片子找到精准病因。换句话说，医生单纯靠片子来做医疗方案是不可靠的，甚至是无效的。
+该论点有论文研究支持，该研究曾对200多人的样本，进行了跨度5年的对比研究，发现腰疼跟所拍片子没有必然关联。有一位叫McGill博士的博主的研究指出：
+片子只能作为一种判断的辅助工具，找到引发疼痛的动作模式才是关键。
+（Note：本讨论仅限于慢性腰疼，如果是急性腰疼，请尽快看医生。）</p>
+<p><img alt="" src="../_images/health-low-back-pain-test1.png" />
+<img alt="" src="../_images/health-low-back-pain-test1-s1.png" />
+<img alt="" src="../_images/health-low-back-pain-test1-s2.png" />
+<img alt="" src="../_images/health-low-back-pain-test1-s3.png" /></p>
+<img alt="" src="../_images/health-low-back-pain-test1.png" />
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/Health/腰疼根源与判断.一个来自youtube的方法/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/sphinx/sphinx_bootstrap_theme/"
+        >sphinx bootstrap theme</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 02 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="tag/sprinx/">sprinx</a>   
+  <a href="tag/bootstrap/">bootstrap</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>Non-consecutive header level increase; 1 to 3 [myst.header]</p>
+<p>安装依赖</p>
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/sphinx/sphinx_bootstrap_theme/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/sphinx/sphinx_markdown/"
+        >Sphinx对Markdown文件的支持</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 02 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">Yu Pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/chinese/">Chinese</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="tag/sprinx/">sprinx</a>   
+  <a href="tag/markdown/">markdown</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>Non-consecutive header level increase; 0 to 2 [myst.header]</p>
+<p>Sphinx可以通过 <strong><a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">MyST-Parser</a></strong> 支持基础功能的Markdown文档。</p>
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/sphinx/sphinx_markdown/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/plex/plug-ins/"
+        >Plex Server 安装插件</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 02 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/chinese/">Chinese</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="tag/plex/">plex</a>   
+  <a href="tag/plug-ins/">plug-ins</a>   
+  <a href="tag/nas/">nas</a>   
+  <a href="tag/qnap/">qnap</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>https://github.com/ukdtom/WebTools.bundle/wiki/Install
+https://github.com/gboudreau/XBMCnfoMoviesImporter.bundle</p>
+<p>下载目标插件，解压</p>
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/plex/plug-ins/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/sphinx/pycharm_rst_file_encoding/"
+        >How to make rst file encoding correct in pycharm</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 02 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="tag/rst/">rst</a>   
+  <a href="tag/pycharm/">pycharm</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>File -&gt; Settings -&gt; Editor -&gt; Code Style -&gt; File Encodings</p>
+<p>Make Settings just like the pic below:<br />
+<img alt="How to make rst file encoding correct in pycharm" src="../_images/pycharm_rst_file_encoding.png" /></p>
+<img alt="How to make rst file encoding correct in pycharm" src="../_images/pycharm_rst_file_encoding.png" />
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/sphinx/pycharm_rst_file_encoding/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/sphinx/how to build a blog with sphinx/"
+        >How to build a blog with sphinx?</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 02 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">Yu Pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="tag/sphinx/">sphinx</a>   
+  <a href="tag/blog/">blog</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>Clone the <a class="reference external" href="https://github.com/choldgraf/choldgraf.github.io">Template Project</a></p>
+<p>Install nox.</p>
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/sphinx/how to build a blog with sphinx/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/pycharm/How to active virtualenv in pycharm terminal by default/"
+        >How to active virtualenv in pyCharm terminal by default?</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 02 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="tag/pycharm/">pycharm</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>File -&gt; Settings -&gt; Terminal -&gt; Application Settings -&gt; Shell path</p>
+<p>Select: cmd.exe</p>
+<img alt="pycharm terminal settings" src="../_images/pycharm_terminal_settings.png" />
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/pycharm/How to active virtualenv in pycharm terminal by default/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/git/github quick start/"
+        >Github quick start</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 02 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">Yu Pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="tag/github/">github</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>df</p>
+<p>Get started by creating a new file or uploading an existing file.
+We recommend every repository include a README, LICENSE, and .gitignore.</p>
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/git/github quick start/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/git/github page/"
+        >Github pages</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 02 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">Yu Pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/tech/">Tech</a>  
+</li>
+  
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>DNS: Add an A record point to github server.</p>
+<p><img alt="gh-pages-dns-records" src="../_images/gh-pages-dns-records.jpg" /></p>
+<img alt="gh-pages-dns-records" src="../_images/gh-pages-dns-records.jpg" />
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/git/github page/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/Skill/printer-a4-to-a3/"
+        >A4转A3中缝装订打印</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 02 March 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/中文/">中文</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/skill/">Skill</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="tag/a3/">A3</a>   
+  <a href="tag/打印/">打印</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>我们知道2张A4纸拼在一起就是一张A3，所以A4版面的材料，可以使用A3纸张来打印，中缝装订起来，美观大方，有书籍的观感。</p>
+<p>将word导出成为pdf文档；将文件凑为偶数页面，就是说如果只有奇数页，就在最后插入一个空页面;</p>
+<img alt="img" src="../_images/printer-pdf.png" />
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/Skill/printer-a4-to-a3/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/playwright/playwright 入门/"
+        >Learn about Playwright</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 02 March 2021 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="tag/playwright/">playwright</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>https://microsoft.github.io/playwright-python/
+https://playwright.dev/python/docs/intro/</p>
+<p>安装浏览器</p>
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/playwright/playwright 入门/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/git/git abc/"
+        >Using Git in a team</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 22 February 2019 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-pengyan/">Yu Pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/server/">Server</a>  
+</li>
+  
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>Git windows 客户端安装</p>
+<p>新建一个develop分支（from master）http://172.19.13.51:8929/</p>
+</div>
+
+    <p class="ablog-post-expand"><a href="../posts/git/git abc/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+   
+</div>
+
+              </div>
+              
+<!-- Add a comment box underneath the page's content -->
+<script src="https://giscus.app/client.js"
+        data-repo="choldgraf/choldgraf.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk1MTIzNzA1NA=="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOAw3Qvs4CAV4E"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, YPY.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

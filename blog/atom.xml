@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://ypy.one</id>
+  <title>Just A Blog</title>
+  <updated>2022-04-26T03:18:26.920720+00:00</updated>
+  <link href="http://ypy.one"/>
+  <link href="http://ypy.one/blog/atom.xml" rel="self"/>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.25">ABlog</generator>
+  <entry>
+    <id>http://ypy.one/posts/git/git abc/</id>
+    <title>Using Git in a team</title>
+    <updated>2019-02-22T00:00:00+00:00</updated>
+    <author>
+      <name>Yu Pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Git windows 客户端安装&lt;/p&gt;
+&lt;p&gt;新建一个develop分支（from master）http://172.19.13.51:8929/&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/git/git abc/" rel="alternate"/>
+    <summary>Git windows 客户端安装新建一个develop分支（from master）http://172.19.13.51:8929/</summary>
+    <published>2019-02-22T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/playwright/playwright 入门/</id>
+    <title>Learn about Playwright</title>
+    <updated>2021-03-02T00:00:00+00:00</updated>
+    <author>
+      <name>yu pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;https://microsoft.github.io/playwright-python/
+https://playwright.dev/python/docs/intro/&lt;/p&gt;
+&lt;p&gt;安装浏览器&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/playwright/playwright 入门/" rel="alternate"/>
+    <summary>https://microsoft.github.io/playwright-python/
+https://playwright.dev/python/docs/intro/安装浏览器</summary>
+    <category term="playwright" label="playwright"/>
+    <published>2021-03-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/Skill/printer-a4-to-a3/</id>
+    <title>A4转A3中缝装订打印</title>
+    <updated>2022-03-02T00:00:00+00:00</updated>
+    <author>
+      <name>yu pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;我们知道2张A4纸拼在一起就是一张A3，所以A4版面的材料，可以使用A3纸张来打印，中缝装订起来，美观大方，有书籍的观感。&lt;/p&gt;
+&lt;p&gt;将word导出成为pdf文档；将文件凑为偶数页面，就是说如果只有奇数页，就在最后插入一个空页面;&lt;/p&gt;
+&lt;img alt="img" src="../_images/printer-pdf.png" /&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/Skill/printer-a4-to-a3/" rel="alternate"/>
+    <summary>我们知道2张A4纸拼在一起就是一张A3，所以A4版面的材料，可以使用A3纸张来打印，中缝装订起来，美观大方，有书籍的观感。将word导出成为pdf文档；将文件凑为偶数页面，就是说如果只有奇数页，就在最后插入一个空页面;img</summary>
+    <category term="A3" label="A3"/>
+    <category term="打印" label="打印"/>
+    <published>2022-03-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/git/github page/</id>
+    <title>Github pages</title>
+    <updated>2022-03-02T00:00:00+00:00</updated>
+    <author>
+      <name>Yu Pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;DNS: Add an A record point to github server.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="gh-pages-dns-records" src="../_images/gh-pages-dns-records.jpg" /&gt;&lt;/p&gt;
+&lt;img alt="gh-pages-dns-records" src="../_images/gh-pages-dns-records.jpg" /&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/git/github page/" rel="alternate"/>
+    <summary>DNS: Add an A record point to github server.gh-pages-dns-recordsgh-pages-dns-records</summary>
+    <published>2022-03-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/git/github quick start/</id>
+    <title>Github quick start</title>
+    <updated>2022-03-02T00:00:00+00:00</updated>
+    <author>
+      <name>Yu Pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;df&lt;/p&gt;
+&lt;p&gt;Get started by creating a new file or uploading an existing file.
+We recommend every repository include a README, LICENSE, and .gitignore.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/git/github quick start/" rel="alternate"/>
+    <summary>dfGet started by creating a new file or uploading an existing file.
+We recommend every repository include a README, LICENSE, and .gitignore.</summary>
+    <category term="github" label="github"/>
+    <published>2022-03-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/pycharm/How to active virtualenv in pycharm terminal by default/</id>
+    <title>How to active virtualenv in pyCharm terminal by default?</title>
+    <updated>2022-03-02T00:00:00+00:00</updated>
+    <author>
+      <name>yu pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;File -&amp;gt; Settings -&amp;gt; Terminal -&amp;gt; Application Settings -&amp;gt; Shell path&lt;/p&gt;
+&lt;p&gt;Select: cmd.exe&lt;/p&gt;
+&lt;img alt="pycharm terminal settings" src="../_images/pycharm_terminal_settings.png" /&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/pycharm/How to active virtualenv in pycharm terminal by default/" rel="alternate"/>
+    <summary>File -&gt; Settings -&gt; Terminal -&gt; Application Settings -&gt; Shell pathSelect: cmd.exepycharm terminal settings</summary>
+    <category term="pycharm" label="pycharm"/>
+    <published>2022-03-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/sphinx/how to build a blog with sphinx/</id>
+    <title>How to build a blog with sphinx?</title>
+    <updated>2022-03-02T00:00:00+00:00</updated>
+    <author>
+      <name>Yu Pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Clone the &lt;a class="reference external" href="https://github.com/choldgraf/choldgraf.github.io"&gt;Template Project&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Install nox.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/sphinx/how to build a blog with sphinx/" rel="alternate"/>
+    <summary>Clone the Template ProjectInstall nox.</summary>
+    <category term="sphinx" label="sphinx"/>
+    <category term="blog" label="blog"/>
+    <published>2022-03-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/sphinx/pycharm_rst_file_encoding/</id>
+    <title>How to make rst file encoding correct in pycharm</title>
+    <updated>2022-03-02T00:00:00+00:00</updated>
+    <author>
+      <name>yu pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;File -&amp;gt; Settings -&amp;gt; Editor -&amp;gt; Code Style -&amp;gt; File Encodings&lt;/p&gt;
+&lt;p&gt;Make Settings just like the pic below:&lt;br /&gt;
+&lt;img alt="How to make rst file encoding correct in pycharm" src="../_images/pycharm_rst_file_encoding.png" /&gt;&lt;/p&gt;
+&lt;img alt="How to make rst file encoding correct in pycharm" src="../_images/pycharm_rst_file_encoding.png" /&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/sphinx/pycharm_rst_file_encoding/" rel="alternate"/>
+    <summary>File -&gt; Settings -&gt; Editor -&gt; Code Style -&gt; File EncodingsMake Settings just like the pic below:&lt;br /&gt;
+How to make rst file encoding correct in pycharmHow to make rst file encoding correct in pycharm</summary>
+    <category term="rst" label="rst"/>
+    <category term="pycharm" label="pycharm"/>
+    <published>2022-03-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/plex/plug-ins/</id>
+    <title>Plex Server 安装插件</title>
+    <updated>2022-03-02T00:00:00+00:00</updated>
+    <author>
+      <name>yu pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;https://github.com/ukdtom/WebTools.bundle/wiki/Install
+https://github.com/gboudreau/XBMCnfoMoviesImporter.bundle&lt;/p&gt;
+&lt;p&gt;下载目标插件，解压&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/plex/plug-ins/" rel="alternate"/>
+    <summary>https://github.com/ukdtom/WebTools.bundle/wiki/Install
+https://github.com/gboudreau/XBMCnfoMoviesImporter.bundle下载目标插件，解压</summary>
+    <category term="plex" label="plex"/>
+    <category term="plug-ins" label="plug-ins"/>
+    <category term="nas" label="nas"/>
+    <category term="qnap" label="qnap"/>
+    <published>2022-03-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/sphinx/sphinx_markdown/</id>
+    <title>Sphinx对Markdown文件的支持</title>
+    <updated>2022-03-02T00:00:00+00:00</updated>
+    <author>
+      <name>Yu Pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Non-consecutive header level increase; 0 to 2 [myst.header]&lt;/p&gt;
+&lt;p&gt;Sphinx可以通过 &lt;strong&gt;&lt;a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/"&gt;MyST-Parser&lt;/a&gt;&lt;/strong&gt; 支持基础功能的Markdown文档。&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/sphinx/sphinx_markdown/" rel="alternate"/>
+    <summary>Non-consecutive header level increase; 0 to 2 [myst.header]Sphinx可以通过 MyST-Parser 支持基础功能的Markdown文档。</summary>
+    <category term="sprinx" label="sprinx"/>
+    <category term="markdown" label="markdown"/>
+    <published>2022-03-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/sphinx/sphinx_bootstrap_theme/</id>
+    <title>sphinx bootstrap theme</title>
+    <updated>2022-03-02T00:00:00+00:00</updated>
+    <author>
+      <name>yu pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Non-consecutive header level increase; 1 to 3 [myst.header]&lt;/p&gt;
+&lt;p&gt;安装依赖&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/sphinx/sphinx_bootstrap_theme/" rel="alternate"/>
+    <summary>Non-consecutive header level increase; 1 to 3 [myst.header]安装依赖</summary>
+    <category term="sprinx" label="sprinx"/>
+    <category term="bootstrap" label="bootstrap"/>
+    <published>2022-03-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/Health/腰疼根源与判断.一个来自youtube的方法/</id>
+    <title>Low back pain test and train</title>
+    <updated>2022-03-12T00:00:00+00:00</updated>
+    <author>
+      <name>yu pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;核心观点:对于慢性腰疼，没法单纯依靠使用拍片子找到精准病因。换句话说，医生单纯靠片子来做医疗方案是不可靠的，甚至是无效的。
+该论点有论文研究支持，该研究曾对200多人的样本，进行了跨度5年的对比研究，发现腰疼跟所拍片子没有必然关联。有一位叫McGill博士的博主的研究指出：
+片子只能作为一种判断的辅助工具，找到引发疼痛的动作模式才是关键。
+（Note：本讨论仅限于慢性腰疼，如果是急性腰疼，请尽快看医生。）&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="../_images/health-low-back-pain-test1.png" /&gt;
+&lt;img alt="" src="../_images/health-low-back-pain-test1-s1.png" /&gt;
+&lt;img alt="" src="../_images/health-low-back-pain-test1-s2.png" /&gt;
+&lt;img alt="" src="../_images/health-low-back-pain-test1-s3.png" /&gt;&lt;/p&gt;
+&lt;img alt="" src="../_images/health-low-back-pain-test1.png" /&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/Health/腰疼根源与判断.一个来自youtube的方法/" rel="alternate"/>
+    <summary>核心观点:对于慢性腰疼，没法单纯依靠使用拍片子找到精准病因。换句话说，医生单纯靠片子来做医疗方案是不可靠的，甚至是无效的。
+该论点有论文研究支持，该研究曾对200多人的样本，进行了跨度5年的对比研究，发现腰疼跟所拍片子没有必然关联。有一位叫McGill博士的博主的研究指出：
+片子只能作为一种判断的辅助工具，找到引发疼痛的动作模式才是关键。
+（Note：本讨论仅限于慢性腰疼，如果是急性腰疼，请尽快看医生。）
+
+
+</summary>
+    <category term="Lowbackpain" label="Low back pain"/>
+    <published>2022-03-12T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/Academic/研究数据/</id>
+    <title>研究数据资源汇集</title>
+    <updated>2022-03-23T00:00:00+00:00</updated>
+    <author>
+      <name>yu pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://cgss.ruc.edu.cn/info/1014/1019.htm"&gt;中国综合社会调查 (Chinese General Social Survey,CGSS)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.issp.org/menu-top/home/"&gt;国际社会调查项目 (International Social Survey Programme,ISSP)&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/Academic/研究数据/" rel="alternate"/>
+    <summary>中国综合社会调查 (Chinese General Social Survey,CGSS)国际社会调查项目 (International Social Survey Programme,ISSP)</summary>
+    <category term="数据" label="数据"/>
+    <published>2022-03-23T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/Academic/how to use endnote importing dc and fulltext /</id>
+    <title>How to import metedata and fulltext in endnote?</title>
+    <updated>2022-03-26T00:00:00+00:00</updated>
+    <author>
+      <name>yu pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;CNKI官方网站提供，不同格式类型的论文元数据下载。只需在CNKI系统中，搜索、选取你选择的论文，然后按导出:
+&lt;img alt="" src="../_images/cnki_journal_article_dc_export.png" /&gt;&lt;/p&gt;
+&lt;p&gt;之后你就能够获取到一个如下格式的txt文件：
+Endnote Journal Article 元数据格式如下：&lt;/p&gt;
+&lt;img alt="" src="../_images/cnki_journal_article_dc_export.png" /&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/Academic/how to use endnote importing dc and fulltext /" rel="alternate"/>
+    <summary>CNKI官方网站提供，不同格式类型的论文元数据下载。只需在CNKI系统中，搜索、选取你选择的论文，然后按导出:
+之后你就能够获取到一个如下格式的txt文件：
+Endnote Journal Article 元数据格式如下：</summary>
+    <category term="endnote" label="endnote"/>
+    <category term="e-study" label="e-study"/>
+    <published>2022-03-26T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>http://ypy.one/posts/ios/ios app 降级/</id>
+    <title>准备工作</title>
+    <updated>2022-03-26T00:00:00+00:00</updated>
+    <author>
+      <name>yu pengyan</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;#IOS App 安全降级
+此教材是利用官方app store进行降级下载，最具安全性。&lt;br /&gt;
+&lt;img alt="img.png" src="../_images/img.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Non-consecutive header level increase; 0 to 2 [myst.header]&lt;/p&gt;
+&lt;img alt="img.png" src="../_images/img.png" /&gt;
+&lt;/div&gt;
+</content>
+    <link href="http://ypy.one/posts/ios/ios app 降级/" rel="alternate"/>
+    <summary>#IOS App 安全降级
+此教材是利用官方app store进行降级下载，最具安全性。&lt;br /&gt;
+img.pngNon-consecutive header level increase; 0 to 2 [myst.header]img.png</summary>
+    <category term="ios" label="ios"/>
+    <published>2022-03-26T00:00:00+00:00</published>
+  </entry>
+</feed>

@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="如何高效地将CNKI论文元数据与全文导入Endnote?" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://predictablynoisy.com/posts/Academic/how to use endnote importing dc and fulltext /" />
+  
+<meta property="og:description" content="获取论文元数据: CNKI官方网站提供，不同格式类型的论文元数据下载。只需在CNKI系统中，搜索、选取你选择的论文，然后按导出: 之后你就能够获取到一个如下格式的txt文件： Endnote Journal Article 元数据格式如下： 正常情况下，我们使用Endnote的import功能就可以非常简单地将文件里面的元数据导入到Endnote，然后通过手工添加附件完成论文全文的导入。 非..." />
+  
+<meta property="og:image" content="https://predictablynoisy.com/_static/profile-bw.png" />
+  
+<meta property="og:image:alt" content="如何高效地将CNKI论文元数据与全文导入Endnote?" />
+  
+    <title>如何高效地将CNKI论文元数据与全文导入Endnote? &#8212; Just A Blog  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="Just A Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../../">
+<p class="title">Just A Blog</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about/">
+  About me
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../blog/">
+  Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  26 March 2022 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../../blog/author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="../../../blog/language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../../blog/category/academic/">Academic</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="../../../blog/tag/endnote/">endnote</a>   
+  <a href="../../../blog/tag/e-study/">e-study</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../ios/ios app 降级/"
+      >26 March - 准备工作</a
+    >
+  </li>
+  
+  <li>
+    <a href="../研究数据/"
+      >23 March - 研究数据资源汇集</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Health/腰疼根源与判断.一个来自youtube的方法/"
+      >12 March - Low back pain test and train</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../sphinx/sphinx_bootstrap_theme/"
+      >02 March - sphinx bootstrap theme</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../sphinx/sphinx_markdown/"
+      >02 March - Sphinx对Markdown文件的支持</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/2022/">2022 (13)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2021/">2021 (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../blog/category/">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/category/academic/">Academic (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/health/">Health (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/server/">Server (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/skill/">Skill (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/tech/">Tech (10)</a>
+  </li>
+   
+</ul>
+
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   获取论文元数据
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   高效导入论文全文
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     预备知识
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     方案思路
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     实现代码
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   参考
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="cnkiendnote">
+<h1>如何高效地将CNKI论文元数据与全文导入Endnote?<a class="headerlink" href="#cnkiendnote" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id1">
+<h2>获取论文元数据<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>CNKI官方网站提供，不同格式类型的论文元数据下载。只需在CNKI系统中，搜索、选取你选择的论文，然后按导出:
+<img alt="" src="../../../_images/cnki_journal_article_dc_export.png" /></p>
+<p>之后你就能够获取到一个如下格式的txt文件：
+Endnote Journal Article 元数据格式如下：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>%0 Journal Article
+%A 尹召凯
+%A 任同
+%A 张志强
+%+ 南京大学信息管理学院;南京大学出版研究院;
+%T 中国居民阅读行为对社会治理绩效感知的影响研究——基于CGSS2015数据的实证分析444444444444
+%J 中国图书馆学报
+%K 全民阅读;阅读行为;社会治理;阅读推广
+%X 在国家治理体系与治理能力现代化的语境下，出版与阅读发挥着提升公民综合素质的重要作用。为探究阅读行为如何影响个体对社会治理的绩效感知，本文基于CGSS2015的数据，实证分析个体阅读行为与社会治理绩效感知之间的内在关联。结果发现：阅读行为对整体的社会治理绩效感知具有促进作用，但存在一定的阈值效应；从受教育程度来看，阅读行为对中等教育水平居民的社会治理绩效感知有正向影响，对低教育水平和高教育水平居民影响不显著，呈现“倒U型”关系；从收入水平来看，阅读行为对中等偏下收入阶层居民的社会治理绩效感知影响效果最强；从居住地的城乡差异来看，阅读行为对城镇居民和农村居民的社会治理绩效感知均呈正向影响，对城镇居民的影响效果更强。建议：从社会治理提升角度重新审视出版功能，重视以出版物阅读为文化途径参与国家治理体系和治理能力现代化，进一步肯定阅读推广的必要性，深入落实全民阅读推广政策；在阅读推广实践上，应注重受众群体从精英阶层到普通民众的转向；面对出版与阅读向数字转型的时代趋势，需慎重看待新兴网络与传统媒介的关系，审慎把关阅读内容，努力营造良好的网络阅读环境，更好发挥阅读在社会治理中的积极作用。表8。参考文献51。
+%P 1-21
+%@ 1001-8867
+%L 11-2746/G2
+%U https://kns.cnki.net/kcms/detail/11.2746.g2.20220316.1949.004.html
+%W CNKI
+</pre></div>
+</div>
+<p>正常情况下，我们使用Endnote的import功能就可以非常简单地将文件里面的元数据导入到Endnote，然后通过手工添加附件完成论文全文的导入。
+非常遗憾，这是非常低效率的做法，但目前Endnote也没有提供更高效率的工具来完成以上工作。</p>
+</div>
+<div class="section" id="id2">
+<h2>高效导入论文全文<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id3">
+<h3>预备知识<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>通过网络检索，我们发现Endnote提供了以下语法，可以在元数据中附加文件，然后一次性导入元数据及论文全文：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>%&gt; C:\Folder\File.pdf
+</pre></div>
+</div>
+<p>例如：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>%0 Journal Article
+%A 尹召凯
+%A 任同
+%A 张志强
+%+ 南京大学信息管理学院;南京大学出版研究院;
+%T 中国居民阅读行为对社会治理绩效感知的影响研究——基于CGSS2015数据的实证分析444444444444
+%J 中国图书馆学报
+%K 全民阅读;阅读行为;社会治理;阅读推广
+%X 在国家治理体系与治理能力现代化的语境下，出版与阅读发挥着提升公民综合素质的重要作用。为探究阅读行为如何影响个体对社会治理的绩效感知，本文基于CGSS2015的数据，实证分析个体阅读行为与社会治理绩效感知之间的内在关联。结果发现：阅读行为对整体的社会治理绩效感知具有促进作用，但存在一定的阈值效应；从受教育程度来看，阅读行为对中等教育水平居民的社会治理绩效感知有正向影响，对低教育水平和高教育水平居民影响不显著，呈现“倒U型”关系；从收入水平来看，阅读行为对中等偏下收入阶层居民的社会治理绩效感知影响效果最强；从居住地的城乡差异来看，阅读行为对城镇居民和农村居民的社会治理绩效感知均呈正向影响，对城镇居民的影响效果更强。建议：从社会治理提升角度重新审视出版功能，重视以出版物阅读为文化途径参与国家治理体系和治理能力现代化，进一步肯定阅读推广的必要性，深入落实全民阅读推广政策；在阅读推广实践上，应注重受众群体从精英阶层到普通民众的转向；面对出版与阅读向数字转型的时代趋势，需慎重看待新兴网络与传统媒介的关系，审慎把关阅读内容，努力营造良好的网络阅读环境，更好发挥阅读在社会治理中的积极作用。表8。参考文献51。
+%P 1-21
+%@ 1001-8867
+%L 11-2746/G2
+%U https://kns.cnki.net/kcms/detail/11.2746.g2.20220316.1949.004.html
+%W CNKI
+%&gt; C:\Folder\File.pdf
+</pre></div>
+</div>
+<p>题外话：上述方法的灵感来源于ACS、Wiley、RSC、Elsevier等出版商常用的RIS协议中的L1-file:语句，在.ris文件中这一语句可以写作：</p>
+<blockquote>
+<div><p>L1 - file://C:\Folder\File.pdf</p>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h3>方案思路<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>基于以上知识，我们整理下解决方案的思路：</p>
+<ol class="simple">
+<li><p>CNKI导出Endnote元数据，同时导出知网研学（原e-study）元数据，一数据两格式。</p></li>
+<li><p>将.es6元数据文件导入知网研学（原e-study）软件，并且一键下载全文。之后，我们本地就获取到了以title命名的论文全文。</p></li>
+<li><p>使用python脚本将本地pdf文件，路径附加到endnote元数据。</p></li>
+<li><p>使用Endnote import 功能，将含有全文地址的元数据文件导入。</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3>实现代码<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">功能：在endnote元数据文件附上全文地址</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># 获取e-study论文文件路径、名称</span>
+<span class="k">def</span> <span class="nf">get_all_files</span><span class="p">(</span><span class="n">pdf_dir</span><span class="p">):</span>
+    <span class="n">files</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">files_dic</span><span class="o">=</span><span class="p">{}</span> <span class="c1"># 文件名：文件路径;可能有重名文件，路径会被后面的覆盖</span>
+    <span class="k">for</span> <span class="nb">dir</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">pdf_dir</span><span class="p">):</span>
+        <span class="n">path</span><span class="o">=</span><span class="n">pdf_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="nb">dir</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+                <span class="n">file_and_path</span> <span class="o">=</span><span class="n">path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">file_name</span>
+                <span class="n">file_name_without_ext</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">files_dic</span><span class="p">[</span><span class="n">file_name_without_ext</span><span class="p">]</span><span class="o">=</span><span class="n">file_and_path</span>
+    <span class="k">return</span> <span class="n">files_dic</span>
+
+<span class="k">def</span> <span class="nf">endnote_dc_formatter</span><span class="p">(</span><span class="n">source_file</span><span class="p">,</span><span class="n">save_file</span><span class="p">,</span><span class="n">pdf_dir</span><span class="p">):</span>
+    <span class="n">pdf_files</span><span class="o">=</span><span class="n">get_all_files</span><span class="p">(</span><span class="n">pdf_dir</span><span class="p">)</span> <span class="c1"># 返回 dic ,文件名：文件路径; 使用文件名可以取得路径。</span>
+    <span class="c1">#print(pdf_files)</span>
+    <span class="n">lines</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">lines_new</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">source_file</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+            <span class="c1">#print(line.index())</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;%T &#39;</span><span class="p">):</span>
+            <span class="n">title</span><span class="o">=</span><span class="n">line</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">title</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pdf_files</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">t</span><span class="p">):</span><span class="c1"># 避免pdf_files[key],key不存在触发错误</span>
+                <span class="n">pdf_file_path</span><span class="o">=</span><span class="n">pdf_files</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+                <span class="n">line</span><span class="o">=</span><span class="n">line</span><span class="o">+</span> <span class="s1">&#39;%&gt; &#39;</span><span class="o">+</span> <span class="n">pdf_file_path</span> <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">lines_new</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines_new</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">new_file</span><span class="p">:</span>
+        <span class="n">new_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">source_file</span><span class="o">=</span><span class="s1">&#39;H:/Users/pengyan/Downloads/CNKI-20.txt&#39;</span>
+    <span class="n">save_file</span><span class="o">=</span><span class="s1">&#39;H:/Users/pengyan/Downloads/CNKI-20_new.txt&#39;</span>
+    <span class="n">pdf_dir</span><span class="o">=</span><span class="s1">&#39;G:/private src data/e-study/pengyansrc/Literature&#39;</span>
+    <span class="n">endnote_dc_formatter</span><span class="p">(</span><span class="n">source_file</span><span class="p">,</span><span class="n">save_file</span><span class="p">,</span><span class="n">pdf_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>参考<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.zhihu.com/question/389538134">endnote怎样才能高效将PDF论文添加到已导入的文献信息?</a></p></li>
+<li><p><span class="xref myst">代码下载</span></p></li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+    
+
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../研究数据/">
+      <i class="fa fa-arrow-circle-left"></i> 研究数据资源汇集
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     
+    <a href="../../ios/ios app 降级/">
+      准备工作 <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+<!-- Add a comment box underneath the page's content -->
+<script src="https://giscus.app/client.js"
+        data-repo="choldgraf/choldgraf.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk1MTIzNzA1NA=="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOAw3Qvs4CAV4E"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, YPY.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

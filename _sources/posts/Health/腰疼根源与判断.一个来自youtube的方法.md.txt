@@ -1,0 +1,64 @@
+---
+blogpost: true
+date: March 12, 2022
+author: yu pengyan
+tags: Low back pain
+category: Health
+---
+# Low back pain test and train
+
+核心观点:对于慢性腰疼，没法单纯依靠使用拍片子找到精准病因。换句话说，医生单纯靠片子来做医疗方案是不可靠的，甚至是无效的。
+该论点有论文研究支持，该研究曾对200多人的样本，进行了跨度5年的对比研究，发现腰疼跟所拍片子没有必然关联。有一位叫McGill博士的博主的研究指出：
+片子只能作为一种判断的辅助工具，找到引发疼痛的动作模式才是关键。
+（Note：本讨论仅限于慢性腰疼，如果是急性腰疼，请尽快看医生。）
+
+## Test & train
+### Test1: 屈曲不耐受测试
+![](health-low-back-pain-test1.png)
+![](health-low-back-pain-test1-s1.png)
+![](health-low-back-pain-test1-s2.png)
+![](health-low-back-pain-test1-s3.png)
+
+### Train1: 屈曲不耐受训练
+
+1. Step1: 悬空的一侧，骨盆垂直上下运动        
+![](health-low-back-pain-train1-s1-1.png)
+![](health-low-back-pain-train1-s1-2.png) 
+
+2. Step2:   
+![](health-low-back-pain-train1-s1.png)
+![](health-low-back-pain-train1-s2-1.png)
+![](health-low-back-pain-train1-s2-2.png)
+
+3. Step3:  
+![](health-low-back-pain-train1-s3-1.png)
+![](health-low-back-pain-train1-s3-2.png)
+ 
+4. Step4:
+![](health-low-back-pain-train1-s4-1.png)
+![](health-low-back-pain-train1-s4-2.png)
+
+### Test2: 伸展不耐受测试 
+![](health-low-back-pain-test2.png)
+![](health-low-back-pain-test2-s1.png)
+![](health-low-back-pain-test2-s2.png)
+![](health-low-back-pain-test2-s3.png)
+![](health-low-back-pain-test2-s4-1.png)
+![](health-low-back-pain-test2-s4-2.png)
+
+### Train2: 伸展不耐受训练
+1. Step1:
+![](health-low-back-pain-train2-s1-1.png)
+![](health-low-back-pain-train2-s1-2.png) 
+
+2. Step2:收紧、放松、收紧、放松...循环做  
+![](health-low-back-pain-train2-s2-1.png)
+
+3. Step3: 静态保存该动作
+![](health-low-back-pain-train2-s3-1.png)
+
+4. Step4: 带动泡沫轴小范围来回滚动  
+![](health-low-back-pain-train2-s4-1.png)
+
+## Reference
+[我所经历的医学骗局｜1分钟赚1万，这生意可太好做了](https://www.youtube.com/watch?v=37a5SiUTA8Q&ab_channel=%E5%81%A5%E5%8A%A9%E5%B8%88_%E5%B0%8F%E7%8F%82Spotterlions_Ke)

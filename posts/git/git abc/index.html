@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="Using Git in a team" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://predictablynoisy.com/posts/git/git abc/" />
+  
+<meta property="og:description" content="前期准备: Git windows 客户端安装. 管理者: 新建一个develop分支（from master）http://172.19.13.51:8929/, 为合作者新建一个合作者分支，如cjj. 合作者在合作者分支上面修改代码，合并到develop，然后提交到Git服务器。 合作者: Create a new repository Existing folder Existing ..." />
+  
+<meta property="og:image" content="https://predictablynoisy.com/_static/profile-bw.png" />
+  
+<meta property="og:image:alt" content="Using Git in a team" />
+  
+    <title>Using Git in a team &#8212; Just A Blog  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="Just A Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../../">
+<p class="title">Just A Blog</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about/">
+  About me
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../blog/">
+  Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  22 February 2019 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../../blog/author/yu-pengyan/">Yu Pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="../../../blog/language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../../blog/category/server/">Server</a>  
+</li>
+  
+</ul>
+
+<h3>
+  <a href="../../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../ios/ios app 降级/"
+      >26 March - 准备工作</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Academic/how to use endnote importing dc and fulltext /"
+      >26 March - How to import metedata and fulltext in endnote?</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Academic/研究数据/"
+      >23 March - 研究数据资源汇集</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Health/腰疼根源与判断.一个来自youtube的方法/"
+      >12 March - Low back pain test and train</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../sphinx/sphinx_bootstrap_theme/"
+      >02 March - sphinx bootstrap theme</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/2022/">2022 (13)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2021/">2021 (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../blog/category/">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/category/academic/">Academic (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/health/">Health (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/server/">Server (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/skill/">Skill (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/tech/">Tech (10)</a>
+  </li>
+   
+</ul>
+
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Using Git in a team
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     前期准备
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     管理者
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     合作者
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     常用操作
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     合并的时候必须遵循以下条件
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     概念辨析
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git">
+   更换远程git仓库地址
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     管理员
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   大文件
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="using-git-in-a-team">
+<h1>Using Git in a team<a class="headerlink" href="#using-git-in-a-team" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id1">
+<h2>前期准备<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Git windows 客户端安装</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>管理者<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>新建一个develop分支（from master）http://172.19.13.51:8929/</p></li>
+<li><p>为合作者新建一个合作者分支，如cjj</p></li>
+</ol>
+<p>合作者在合作者分支上面修改代码，合并到develop，然后提交到Git服务器。</p>
+</div>
+<div class="section" id="id3">
+<h2>合作者<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Git</span> <span class="k">global</span> <span class="n">setup</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;yupengyan&quot;</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="s2">&quot;ypy@example.com&quot;</span>
+</pre></div>
+</div>
+<p>Create a new repository</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@gitlab</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">gdufe</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">cn</span><span class="p">:</span><span class="n">pengyan</span><span class="o">/</span><span class="n">ve3_smartkits</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">ve3_smartkits</span>
+<span class="n">touch</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">add</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;add README&quot;</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+</div>
+<p>Existing folder</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">existing_folder</span>
+<span class="n">git</span> <span class="n">init</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">git</span><span class="nd">@gitlab</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">gdufe</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">cn</span><span class="p">:</span><span class="n">pengyan</span><span class="o">/</span><span class="n">ve3_smartkits</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;Initial commit&quot;</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+</div>
+<p>Existing Git repository</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">existing_repo</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">rename</span> <span class="n">origin</span> <span class="n">old</span><span class="o">-</span><span class="n">origin</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">git</span><span class="nd">@gitlab</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">gdufe</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">cn</span><span class="p">:</span><span class="n">pengyan</span><span class="o">/</span><span class="n">ve3_smartkits</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="o">--</span><span class="nb">all</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="o">--</span><span class="n">tags</span>
+</pre></div>
+</div>
+<p>以项目 http://172.19.13.51:8929/pengyan/dl_documents 合作为例：</p>
+<ol class="simple">
+<li><p>安装Git</p></li>
+<li><p>Git global setup</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;py&quot;</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="s2">&quot;ypy@gdufe.edu.cn&quot;</span>
+</pre></div>
+</div>
+<p>对于需要用Key认证的，先配置。In ~/.ssh/config, add: (如果不是默认22，指定Port很重要)(windows in C:\Users\xxx.git)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="n">gitlab</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">gdufe</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">cn</span>
+  <span class="n">HostName</span> <span class="mf">172.19.13.51</span>
+  <span class="n">Port</span> <span class="mi">2289</span>
+  <span class="n">IdentityFile</span>  <span class="n">E</span><span class="p">:</span><span class="o">/</span><span class="n">OneDrive</span><span class="o">/</span><span class="n">privates</span><span class="o">/</span><span class="c1">#keys/Identity-gitlib-openssh</span>
+  <span class="n">User</span> <span class="n">pengyan</span>
+<span class="n">host</span> <span class="n">git</span><span class="o">-</span><span class="mi">2</span>
+  <span class="n">HostName</span> <span class="mf">172.19.13.51</span>
+  <span class="n">Port</span> <span class="mi">2289</span>
+  <span class="n">IdentityFile</span>  <span class="n">E</span><span class="p">:</span><span class="o">/</span><span class="n">OneDrive</span><span class="o">/</span><span class="n">privates</span><span class="o">/</span><span class="c1">#keys/Identity-gitlib-openssh</span>
+  <span class="n">User</span> <span class="n">pengyan</span>
+</pre></div>
+</div>
+<p>测试下：ssh -T git&#64;github.com  看看有没有出错</p>
+<p>OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054
+2012-3-5 以上方法都不管事</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pengyan@tsg-d-py MINGW64 /g/private src data/# private academic (master)
+$ eval $(ssh-agent -s)
+Agent pid 1045
+
+pengyan@tsg-d-py MINGW64 /g/private src data/# private academic (master)
+$ ssh-add ~/.ssh/openssh_key_ras_github_2048
+Enter passphrase for /c/Users/pengyan/.ssh/openssh_key_ras_github_2048:
+Identity added: /c/Users/pengyan/.ssh/openssh_key_ras_github_2048 (/c/Users/pengyan/.ssh/openssh_key_ras_github_2048)
+
+pengyan@tsg-d-py MINGW64 /g/private src data/# private academic (master)
+$ git push origin master --force
+fatal: unable to access &#39;https://github.com/XXX/XXX.git/&#39;: OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054
+
+pengyan@tsg-d-py MINGW64 /g/private src data/# private academic (master)
+git config --global --unset http.proxy 
+git config --global --unset https.proxy
+
+git config http.sslVerify &quot;false&quot;
+
+git config https.sslVerify &quot;true&quot;
+
+### 服气，ssl 可以，但git 就不行
+pengyan@tsg-d-py MINGW64 /g/private src data/# private academic (master)
+$ git push origin master --force
+fatal: unable to access &#39;https://github.com/yupengyan/private-academic.git/&#39;: OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054
+
+pengyan@tsg-d-py MINGW64 /g/private src data/# private academic (master)
+$ ssh -T git@github.com
+Hi yupengyan! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+
+## 换个证书试试
+ssh-keygen -t rsa -C &quot;pengyan.tech@gmail.com&quot;
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+
+## 更新客户端
+git update-git-for-windows
+</pre></div>
+</div>
+<p>参考：https://www.codenong.com/26266778/</p>
+<p>（）</p>
+<ol class="simple">
+<li><p>Create a new repository</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">my_work_place</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@gitlab</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">gdufe</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">cn</span><span class="p">:</span><span class="n">pengyan</span><span class="o">/</span><span class="n">dl_documents</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">dl_documents</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>常用操作<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>查看有什么分支</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>这个命令的意思就是拉取远程的一个叫develop的分支，并在本地创建一个叫develop的分支和远程的分支匹配。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">origin</span> <span class="n">develop</span><span class="p">:</span><span class="n">develop</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>拉取自己的分支</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">origin</span> <span class="n">xzl</span><span class="p">:</span><span class="n">xzl</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>每个人的所有开发工作都只在自己的分支开发。例如小谢开发，你就在本地切换到自己的xzl分支然后进行开发。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">xzl</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>每个人只允许在自己的分支直接push远程分支。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">touch</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">add</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;add README&quot;</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">xzl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>合并的时候必须遵循以下条件<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>a) 首先，本地切换到develop分支</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">develop</span>
+</pre></div>
+</div>
+<p>b) pull develop分支最新内容到本地</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">develop</span>   
+</pre></div>
+</div>
+<p>c) 保证develop最新前提下合并自己的分支xzl</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">merge</span> <span class="n">xzl</span>
+</pre></div>
+</div>
+<p>d) 如果出现conflict那么清除conflict之后，commit.然后把本地develop push 到远程的develop.每完成一个功能就提交一次。不要累计代码。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;add README&quot;</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">xzl</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">develop</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>概念辨析<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>fork：在github页面，点击fork按钮。将别人的仓库复制一份到自己的仓库。<br />
+clone：将github中的仓库克隆到自己本地电脑中</p>
+<p>(1) pull request的作用<br />
+比如在仓库的主人（A）没有把我们添加为项目合作者的前提下，我们将A的某个仓库名为“a”的仓库clone到自己的电脑中，在自己的电脑进行修改，但是我们会发现我们没办法通过push将代码贡献到B中。</p>
+<p>所以要想将你的代码贡献到B中，我们应该：<br />
+在A的仓库中fork项目a （此时我们自己的github就有一个一模一样的仓库a，但是URL不同）;将我们修改的代码push到自己github中的仓库B中pull request ，主人就会收到请求，并决定要不要接受你的代码;也可以可以申请为项目a的contributor，这样可以直接push</p>
+<p>(2) fork了别人的项目到自己的repository之后，别人的项目更新了，我们fork的项目怎么更新？<br />
+答：首先fetch网上的更新到自己的项目上，然后再判断、merge。这里就涉及了下一个问题，pull和fetch有啥区别。</p>
+<p>（3）fetch+merge与pull效果一样。但是要多用fetch+merge，这样可以检查fetch下来的更新是否合适。pull直接包含了这两步操作，如果你觉得网上的更新没有问题，那直接pull也是可以的。</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="git">
+<h1>更换远程git仓库地址<a class="headerlink" href="#git" title="Permalink to this headline">#</a></h1>
+<p>git remote remove origin
+git remote add origin https://gitee.com/gdufe/Annual_data.git</p>
+<div class="section" id="id7">
+<h2>管理员<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p>git pull origin cyc:cyc
+git merge cyc</p>
+<p>git pull origin</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id8">
+<h1>大文件<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h1>
+<p>git lfs install
+git lfs track “*.7z”
+git add .gitattributes</p>
+<p>git add *.7z
+git commit -m “Add large file”
+git push origin master</p>
+</div>
+
+<div class="section">
+    
+
+<div class="section">
+  <span style="float: left">
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     
+    <a href="../../playwright/playwright 入门/">
+      Learn about Playwright <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+<!-- Add a comment box underneath the page's content -->
+<script src="https://giscus.app/client.js"
+        data-repo="choldgraf/choldgraf.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk1MTIzNzA1NA=="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOAw3Qvs4CAV4E"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, YPY.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

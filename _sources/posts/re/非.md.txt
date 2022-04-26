@@ -1,0 +1,18 @@
+#
+匹配：erback开头但不能连着_的字符串
+```javascript
+<script>
+// 不能匹配,erback后面不能跟_    
+var str = "http://lib.gdufe.edu.cn/erback_s_ddsdds_sd"; 
+// 能匹配    
+var str = "http://lib.gdufe.edu.cn/erbackdddssd_";
+var patt1 = "erback(?!_).*";
+document.write(str.match(patt1));
+</script>
+```
+应用场景haproxy配置url
+
+
+
+## 参考文献
+[1](https://www.runoob.com/regexp/regexp-syntax.html)

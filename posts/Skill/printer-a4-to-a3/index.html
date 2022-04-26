@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="A4转A3中缝装订打印" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://predictablynoisy.com/posts/Skill/printer-a4-to-a3/" />
+  
+<meta property="og:description" content="我们知道2张A4纸拼在一起就是一张A3，所以A4版面的材料，可以使用A3纸张来打印，中缝装订起来，美观大方，有书籍的观感。 步骤: 计算打印顺序: 将word导出成为pdf文档；将文件凑为偶数页面，就是说如果只有奇数页，就在最后插入一个空页面;, 计算打印顺序：设页数为X，打印序列为：. 简而言之就是：12, 34, 56, 78 序列的前后插入X-1，X-2,X-3…序列，如X=12，打印..." />
+  
+<meta property="og:image" content="https://predictablynoisy.com/_static/profile-bw.png" />
+  
+<meta property="og:image:alt" content="A4转A3中缝装订打印" />
+  
+    <title>A4转A3中缝装订打印 &#8212; Just A Blog  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="Just A Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../../">
+<p class="title">Just A Blog</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about/">
+  About me
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../blog/">
+  Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  02 March 2022 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../../blog/author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="../../../blog/language/中文/">中文</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../../blog/category/skill/">Skill</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="../../../blog/tag/a3/">A3</a>   
+  <a href="../../../blog/tag/打印/">打印</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../ios/ios app 降级/"
+      >26 March - 准备工作</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Academic/how to use endnote importing dc and fulltext /"
+      >26 March - How to import metedata and fulltext in endnote?</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Academic/研究数据/"
+      >23 March - 研究数据资源汇集</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Health/腰疼根源与判断.一个来自youtube的方法/"
+      >12 March - Low back pain test and train</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../sphinx/sphinx_bootstrap_theme/"
+      >02 March - sphinx bootstrap theme</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/2022/">2022 (13)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2021/">2021 (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../blog/category/">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/category/academic/">Academic (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/health/">Health (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/server/">Server (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/skill/">Skill (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/tech/">Tech (10)</a>
+  </li>
+   
+</ul>
+
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   步骤
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     计算打印顺序
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     打印设置
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="a4a3">
+<h1>A4转A3中缝装订打印<a class="headerlink" href="#a4a3" title="Permalink to this headline">#</a></h1>
+<p>我们知道2张A4纸拼在一起就是一张A3，所以A4版面的材料，可以使用A3纸张来打印，中缝装订起来，美观大方，有书籍的观感。</p>
+<div class="section" id="id1">
+<h2>步骤<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id2">
+<h3>计算打印顺序<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>将word导出成为pdf文档；将文件凑为偶数页面，就是说如果只有奇数页，就在最后插入一个空页面;</p></li>
+<li><p>计算打印顺序：设页数为X，打印序列为：</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>X
+1
+2
+X-1
+X-2
+3
+4
+X-3
+X-4
+5
+6
+X-5
+...
+最后一项为：
+X-(X/2-1)+1
+X/2-1
+X/2
+X-(X/2-1)
+</pre></div>
+</div>
+<p>简而言之就是：12, 34, 56, 78 序列的前后插入X-1，X-2,X-3…序列，如X=12，打印序列就是：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   12,1,2,11,10,3,4,9,8,5,6,7
+</pre></div>
+</div>
+<p>如果x=8页，则打印顺序为：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>8,1,2,7,6,3,4,5
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>打印设置<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>打印软件设置（以Foxit Phantom为例）：</p>
+<p><img alt="img" src="../../../_images/printer-pdf.png" /></p>
+</li>
+<li><p>打印机软件设置（以惠普为例）：</p>
+<p><img alt="img" src="../../../_images/printer-1.png" /></p>
+<p><img alt="img" src="../../../_images/printer-2.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div class="section">
+    
+
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../../playwright/playwright 入门/">
+      <i class="fa fa-arrow-circle-left"></i> Learn about Playwright
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     
+    <a href="../../git/github page/">
+      Github pages <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+<!-- Add a comment box underneath the page's content -->
+<script src="https://giscus.app/client.js"
+        data-repo="choldgraf/choldgraf.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk1MTIzNzA1NA=="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOAw3Qvs4CAV4E"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, YPY.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

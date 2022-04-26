@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="How to build a blog with sphinx?" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://predictablynoisy.com/posts/sphinx/how to build a blog with sphinx/" />
+  
+<meta property="og:description" content="Quick start: Clone the Template Project, Install nox., Run nox. this should install a Sphinx environment and build the site, putting the output files in _build/html. Make your website: The template..." />
+  
+<meta property="og:image" content="https://predictablynoisy.com/_static/profile-bw.png" />
+  
+<meta property="og:image:alt" content="How to build a blog with sphinx?" />
+  
+    <title>How to build a blog with sphinx? &#8212; Just A Blog  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="Just A Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../../">
+<p class="title">Just A Blog</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about/">
+  About me
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../blog/">
+  Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  02 March 2022 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../../blog/author/yu-pengyan/">Yu Pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="../../../blog/language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../../blog/category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="../../../blog/tag/sphinx/">sphinx</a>   
+  <a href="../../../blog/tag/blog/">blog</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../ios/ios app 降级/"
+      >26 March - 准备工作</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Academic/how to use endnote importing dc and fulltext /"
+      >26 March - How to import metedata and fulltext in endnote?</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Academic/研究数据/"
+      >23 March - 研究数据资源汇集</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Health/腰疼根源与判断.一个来自youtube的方法/"
+      >12 March - Low back pain test and train</a
+    >
+  </li>
+  
+  <li>
+    <a href="../sphinx_bootstrap_theme/"
+      >02 March - sphinx bootstrap theme</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/2022/">2022 (13)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2021/">2021 (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../blog/category/">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/category/academic/">Academic (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/health/">Health (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/server/">Server (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/skill/">Skill (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/tech/">Tech (10)</a>
+  </li>
+   
+</ul>
+
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quick-start">
+   Quick start
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#make-your-website">
+   Make your website
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#index-menu">
+     index Menu
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#about-me">
+     About me
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#social-network">
+     Social network
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-catalog">
+     Other catalog
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sidebars">
+     Sidebars
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#default-conf">
+     Default conf
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-your-blog-post">
+     Write your blog post
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#giscus-app">
+   giscus.app
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manager-your-data">
+   Manager your data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publish-your-website">
+   Publish your website
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#others">
+   Others
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ad">
+   Ad
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   附件如何处理？
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="how-to-build-a-blog-with-sphinx">
+<h1>How to build a blog with sphinx?<a class="headerlink" href="#how-to-build-a-blog-with-sphinx" title="Permalink to this headline">#</a></h1>
+<div class="section" id="quick-start">
+<h2>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">#</a></h2>
+<ol>
+<li><p>Clone the <a class="reference external" href="https://github.com/choldgraf/choldgraf.github.io">Template Project</a></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> git clone https://github.com/choldgraf/choldgraf.github.io.git
+</pre></div>
+</div>
+</li>
+<li><p>Install nox.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> pip install -U nox
+</pre></div>
+</div>
+</li>
+<li><p>Run nox</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> nox -s docs
+</pre></div>
+</div>
+</li>
+</ol>
+<p>this should install a Sphinx environment and build the site, putting the output files in _build/html.</p>
+</div>
+<div class="section" id="make-your-website">
+<h2>Make your website<a class="headerlink" href="#make-your-website" title="Permalink to this headline">#</a></h2>
+<p>The template project is a demo.The information is all about Chris Holdgraf, you should make it to yourself.</p>
+<div class="section" id="index-menu">
+<h3>index Menu<a class="headerlink" href="#index-menu" title="Permalink to this headline">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{toctree}
+:maxdepth: 2
+:hidden:
+about
+projects
+publications
+talks
+blog
+</pre></div>
+</div>
+<p>Change</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{toctree}
+:maxdepth: 2
+:hidden:
+about
+blog
+</pre></div>
+</div>
+</div>
+<div class="section" id="about-me">
+<h3>About me<a class="headerlink" href="#about-me" title="Permalink to this headline">#</a></h3>
+<p>There are three files containing the personal informantion. You should change the following files：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>index.md  
+about.md  
+_templates/hello.html
+</pre></div>
+</div>
+<p>also you shuold replace the following images:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>_static/favicon.ico
+_static/profile.jpg
+_static/profile_bw.png
+</pre></div>
+</div>
+<p>delete or replace the two files: _static/works.bib and cv.pdf</p>
+</div>
+<div class="section" id="social-network">
+<h3>Social network<a class="headerlink" href="#social-network" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="other-catalog">
+<h3>Other catalog<a class="headerlink" href="#other-catalog" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="sidebars">
+<h3>Sidebars<a class="headerlink" href="#sidebars" title="Permalink to this headline">#</a></h3>
+<p>conf.py</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>html_sidebars = {
+    &quot;index&quot;: [&quot;hello.html&quot;],
+    &quot;about&quot;: [&quot;hello.html&quot;],
+    #&quot;publications&quot;: [&quot;hello.html&quot;],
+    #&quot;projects&quot;: [&quot;hello.html&quot;],
+    #&quot;talks&quot;: [&quot;hello.html&quot;],
+    &quot;posts/**&quot;: [&#39;postcard.html&#39;, &#39;recentposts.html&#39;, &#39;archives.html&#39;,&#39;categories.html&#39;],
+    &quot;blog&quot;: [&#39;tagcloud.html&#39;, &#39;archives.html&#39;,&#39;categories.html&#39;],
+    &quot;blog/**&quot;: [&#39;postcard.html&#39;, &#39;recentposts.html&#39;, &#39;archives.html&#39;,&#39;categories.html&#39;]
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="default-conf">
+<h3>Default conf<a class="headerlink" href="#default-conf" title="Permalink to this headline">#</a></h3>
+<p>conf.py</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>blog_default_author=&#39;ypy&#39;
+blog_default_language=&#39;English&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="write-your-blog-post">
+<h3>Write your blog post<a class="headerlink" href="#write-your-blog-post" title="Permalink to this headline">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>---
+blogpost: true
+date: Oct 10, 2020
+author: Nabil Freij
+location: World
+category: Manual
+language: English
+---
+</pre></div>
+</div>
+<p>This project use sphinx extention ABlog to make blogs.Learn more about <a class="reference external" href="https://ablog.readthedocs.io/en/latest/">ABlog</a>.</p>
+</div>
+</div>
+<div class="section" id="giscus-app">
+<h2>giscus.app<a class="headerlink" href="#giscus-app" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="manager-your-data">
+<h2>Manager your data<a class="headerlink" href="#manager-your-data" title="Permalink to this headline">#</a></h2>
+<p>sync your data</p>
+<p>https://ablog.readthedocs.io/en/latest/manual/notebook_support/</p>
+</div>
+<div class="section" id="publish-your-website">
+<h2>Publish your website<a class="headerlink" href="#publish-your-website" title="Permalink to this headline">#</a></h2>
+<p>https://www.sphinx-doc.org/en/master/tutorial/deploying.html#id5</p>
+</div>
+<div class="section" id="others">
+<h2>Others<a class="headerlink" href="#others" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>How to handle the image location?</p></li>
+</ol>
+<blockquote>
+<div><p>Just put the images in the same catalog with markdown files.</p>
+</div></blockquote>
+<ol class="simple">
+<li><p>Image name cann’t have any white space.For example, ‘im a image.jpg’ is not correct.You should name it ‘im_a_image.jpg’ .</p></li>
+</ol>
+</div>
+<div class="section" id="ad">
+<h2>Ad<a class="headerlink" href="#ad" title="Permalink to this headline">#</a></h2>
+<p>https://www.ethicalads.io/publishers/?ref=rtd-sidebar-join</p>
+</div>
+<div class="section" id="id1">
+<h2>附件如何处理？<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#referencing-downloadable-files</p>
+<p>here is a pdf file :download:<code class="docutils literal notranslate"><span class="pre">pdf</span> <span class="pre">&lt;doc/mypdf.pdf&gt;</span></code></p>
+<p>.. image:: doc/mypdf.pdf</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://ablog.readthedocs.io/en/latest/manual">ABlog manual</a></p></li>
+<li></li>
+</ol>
+</div>
+</div>
+
+<div class="section">
+    
+
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../../pycharm/How to active virtualenv in pycharm terminal by default/">
+      <i class="fa fa-arrow-circle-left"></i> How to active virtualenv in pyCharm terminal by default?
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     
+    <a href="../pycharm_rst_file_encoding/">
+      How to make rst file encoding correct in pycharm <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+<!-- Add a comment box underneath the page's content -->
+<script src="https://giscus.app/client.js"
+        data-repo="choldgraf/choldgraf.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk1MTIzNzA1NA=="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOAw3Qvs4CAV4E"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, YPY.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

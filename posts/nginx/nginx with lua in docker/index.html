@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://predictablynoisy.com/posts/nginx/nginx with lua in docker/" />
+  
+<meta property="og:description" content="#D ockerfile构建Nginx镜像 参考：https://www.cnblogs.com/rongfengliang/p/13451631.html: https://github.com/racx/cas-auth-lua-nginx/blob/master/Dockerfile racx/dev 方案: https://github.com/openresty/openresty..." />
+  
+<meta property="og:image" content="https://predictablynoisy.com/_static/profile-bw.png" />
+  
+    <title> &#8212; Just A Blog  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="Just A Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../../">
+<p class="title">Just A Blog</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about/">
+  About me
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../blog/">
+  Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items">
+<h3>
+  <a href="../../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../ios/ios app 降级/"
+      >26 March - 准备工作</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Academic/how to use endnote importing dc and fulltext /"
+      >26 March - How to import metedata and fulltext in endnote?</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Academic/研究数据/"
+      >23 March - 研究数据资源汇集</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Health/腰疼根源与判断.一个来自youtube的方法/"
+      >12 March - Low back pain test and train</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../sphinx/sphinx_bootstrap_theme/"
+      >02 March - sphinx bootstrap theme</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/2022/">2022 (13)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2021/">2021 (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../blog/category/">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/category/academic/">Academic (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/health/">Health (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/server/">Server (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/skill/">Skill (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/tech/">Tech (10)</a>
+  </li>
+   
+</ul>
+
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   方案
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   指定提供服务的端口
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#location">
+   配置反向代理的 Location
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   反向代理到的目标
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   创建用于保存配置的目录
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   生成配置文件
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   启动服务
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+
+              <div>
+                 <p>#D ockerfile构建Nginx镜像</p>
+<div class="section" id="id1">
+<h1><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p>参考：https://www.cnblogs.com/rongfengliang/p/13451631.html</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FROM alpine:3.8
+ENV TENGINE_VERSION 2.3.2
+# nginx: https://git.io/vSIyj
+RUN rm -rf /var/cache/apk/* &amp;&amp; \
+    rm -rf /tmp/*
+ENV CONFIG &quot;\
+        --prefix=/etc/nginx \
+        --sbin-path=/usr/sbin/nginx \
+        --modules-path=/usr/lib/nginx/modules \
+        --conf-path=/etc/nginx/nginx.conf \
+        --error-log-path=/var/log/nginx/error.log \
+        --http-log-path=/var/log/nginx/access.log \
+        --pid-path=/var/run/nginx.pid \
+        --lock-path=/var/run/nginx.lock \
+        --http-client-body-temp-path=/var/cache/nginx/client_temp \
+        --http-proxy-temp-path=/var/cache/nginx/proxy_temp \
+        --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
+        --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
+        --http-scgi-temp-path=/var/cache/nginx/scgi_temp \
+        --user=nginx \
+        --group=nginx \
+        --with-http_ssl_module \
+        --with-http_realip_module \
+        --with-http_addition_module \
+        --with-http_sub_module \
+        --with-http_dav_module \
+        --with-http_flv_module \
+        --with-http_mp4_module \
+        --with-http_gunzip_module \
+        --with-http_gzip_static_module \
+        --with-http_random_index_module \
+        --with-http_secure_link_module \
+        --with-http_stub_status_module \
+        --with-http_auth_request_module \
+        --with-http_xslt_module=dynamic \
+        --with-http_image_filter_module=dynamic \
+        --with-http_geoip_module=dynamic \
+        --with-threads \
+        --with-stream \
+        --with-stream_ssl_module \
+        --with-stream_ssl_preread_module \
+        --with-stream_realip_module \
+        --with-stream_geoip_module=dynamic \
+        --with-http_slice_module \
+        --with-mail \
+        --with-mail_ssl_module \
+        --with-compat \
+        --with-file-aio \
+        --with-http_v2_module \
+        --add-module=modules/ngx_http_lua_module \
+        --add-module=modules/ngx_http_upstream_check_module \
+        --add-module=modules/headers-more-nginx-module-0.33 \
+        --add-module=modules/ngx_http_proxy_connect_module \
+        --add-module=modules/ngx_http_user_agent_module \
+        --add-module=modules/ngx_multi_upstream_module \
+        --add-module=modules/ngx_http_upstream_session_sticky_module \
+        --add-module=modules/ngx_http_upstream_vnswrr_module \
+        --add-module=modules/ngx_http_slice_module \
+        --add-module=modules/ngx_http_reqstat_module \
+        --add-module=modules/ngx_http_footer_filter_module \
+        --add-module=modules/ngx_http_trim_filter_module \
+        --add-module=modules/mod_config \
+        --add-module=modules/mod_dubbo \
+        &quot;
+RUN     addgroup -S nginx \
+        &amp;&amp; adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx \
+        &amp;&amp; addgroup -g 82 -S www-data &amp;&amp; adduser -u 82 -D -S -G www-data www-data \
+        &amp;&amp; apk update &amp;&amp; apk add --no-cache --virtual .build-deps \
+                gcc \
+                g++ \
+                libc-dev \
+                make \
+                openssl-dev \
+                pcre-dev \
+                zlib-dev \
+                linux-headers \
+                curl \
+                libxslt-dev \
+                gd-dev \
+                geoip-dev \
+        &amp;&amp; curl -L &quot;https://github.com/alibaba/tengine/archive/$TENGINE_VERSION.tar.gz&quot; -o tengine.tar.gz \
+        &amp;&amp; mkdir -p /usr/src \
+        &amp;&amp; tar -zxC /usr/src -f tengine.tar.gz \
+        &amp;&amp; rm tengine.tar.gz \
+        &amp;&amp; cd /usr/src/tengine-$TENGINE_VERSION \
+        &amp;&amp; curl -L &quot;https://github.com/openresty/headers-more-nginx-module/archive/v0.33.tar.gz&quot; -o more.tar.gz \
+        &amp;&amp; curl -L &quot;https://github.com/openresty/luajit2/archive/v2.1-20200102.tar.gz&quot; -o v2.1-20200102.tar.gz \
+        &amp;&amp; tar -zxC /usr/src/tengine-$TENGINE_VERSION/modules -f more.tar.gz \
+        &amp;&amp; tar -zxC /usr/src/tengine-$TENGINE_VERSION -f v2.1-20200102.tar.gz \
+    &amp;&amp; rm  more.tar.gz v2.1-20200102.tar.gz\
+    &amp;&amp; ls -l /usr/src/tengine-$TENGINE_VERSION/modules \
+        &amp;&amp; cd luajit2-2.1-20200102 &amp;&amp; make &amp;&amp; make install \
+        &amp;&amp; export LUAJIT_LIB=/usr/local/lib  export LUAJIT_INC=/usr/local/include/luajit-2.1 \
+    &amp;&amp; cd .. &amp;&amp; ./configure $CONFIG --with-debug \
+        &amp;&amp; make -j$(getconf _NPROCESSORS_ONLN) \
+        &amp;&amp; mv objs/nginx objs/nginx-debug \
+        &amp;&amp; mv objs/ngx_http_xslt_filter_module.so objs/ngx_http_xslt_filter_module-debug.so \
+        &amp;&amp; mv objs/ngx_http_image_filter_module.so objs/ngx_http_image_filter_module-debug.so \
+        &amp;&amp; mv objs/ngx_http_geoip_module.so objs/ngx_http_geoip_module-debug.so \
+        &amp;&amp; mv objs/ngx_stream_geoip_module.so objs/ngx_stream_geoip_module-debug.so \
+        &amp;&amp; ./configure $CONFIG \
+        &amp;&amp; make -j$(getconf _NPROCESSORS_ONLN) \
+        &amp;&amp; make install \
+        &amp;&amp; rm -rf /etc/nginx/html/ \
+        &amp;&amp; mkdir /etc/nginx/conf.d/ \
+        &amp;&amp; mkdir -p /usr/share/nginx/html/ \
+        &amp;&amp; install -m644 html/index.html /usr/share/nginx/html/ \
+        &amp;&amp; install -m644 html/50x.html /usr/share/nginx/html/ \
+        &amp;&amp; install -m755 objs/nginx-debug /usr/sbin/nginx-debug \
+        &amp;&amp; install -m755 objs/ngx_http_xslt_filter_module-debug.so /usr/lib/nginx/modules/ngx_http_xslt_filter_module-debug.so \
+        &amp;&amp; install -m755 objs/ngx_http_image_filter_module-debug.so /usr/lib/nginx/modules/ngx_http_image_filter_module-debug.so \
+        &amp;&amp; install -m755 objs/ngx_http_geoip_module-debug.so /usr/lib/nginx/modules/ngx_http_geoip_module-debug.so \
+        &amp;&amp; install -m755 objs/ngx_stream_geoip_module-debug.so /usr/lib/nginx/modules/ngx_stream_geoip_module-debug.so \
+        &amp;&amp; ln -s ../../usr/lib/nginx/modules /etc/nginx/modules \
+        &amp;&amp; strip /usr/sbin/nginx* \
+        &amp;&amp; strip /usr/lib/nginx/modules/*.so \
+        &amp;&amp; rm -rf /usr/src/tengine-$NGINX_VERSION \
+        \
+        # Bring in gettext so we can get `envsubst`, then throw
+        # the rest away. To do this, we need to install `gettext`
+        # then move `envsubst` out of the way so `gettext` can
+        # be deleted completely, then move `envsubst` back.
+        &amp;&amp; apk add --no-cache --virtual .gettext gettext \
+        &amp;&amp; mv /usr/bin/envsubst /tmp/ \
+        \
+        &amp;&amp; runDeps=&quot;$( \
+                scanelf --needed --nobanner --format &#39;%n#p&#39; /usr/sbin/nginx /usr/lib/nginx/modules/*.so /tmp/envsubst \
+                        | tr &#39;,&#39; &#39;\n&#39; \
+                        | sort -u \
+                        | awk &#39;system(&quot;[ -e /usr/local/lib/&quot; $1 &quot; ]&quot;) == 0 { next } { print &quot;so:&quot; $1 }&#39; \
+        )&quot; \
+        &amp;&amp; apk add --no-cache --virtual .nginx-rundeps $runDeps \
+        &amp;&amp; apk del .build-deps \
+        &amp;&amp; apk del .gettext \
+        &amp;&amp; mv /tmp/envsubst /usr/local/bin/ \
+        \
+        # Bring in tzdata so users could set the timezones through the environment
+        # variables
+        &amp;&amp; apk add --no-cache tzdata \
+        \
+        # forward request and error logs to docker log collector
+        &amp;&amp; ln -sf /dev/stdout /var/log/nginx/access.log \
+        &amp;&amp; ln -sf /dev/stderr /var/log/nginx/error.log
+EXPOSE 80 443
+STOPSIGNAL SIGTERM
+CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>docker build -t nginx .
+
+docker run  \
+--restart always \
+-p 6080:80 \
+-p 6443:443 \
+--name nginx \
+-d nginx
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h1><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
+<p>https://github.com/racx/cas-auth-lua-nginx/blob/master/Dockerfile</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>docker build -t nginx-cas .
+</pre></div>
+</div>
+<p>racx/dev</p>
+</div>
+<div class="section" id="id3">
+<h1>方案<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h1>
+<p>https://github.com/openresty/openresty
+https://github.com/EsupPortail/nginx-auth-cas-lua</p>
+<p>https://blog.csdn.net/qq_42236935/article/details/106905970</p>
+<p>docker run –name openresty -p 80:80 -p 443:443 -di  openresty/openresty
+docker exec -it openresty /bin/bash</p>
+<p>apt-get update
+apt-get -y install vim</p>
+<p>https://www.jianshu.com/p/b3b0bf529a0b</p>
+<p>$ docker run –rm <br />
+-p 20000:80 <br />
+-v 配置文件所在路径:/etc/nginx/conf.d/ <br />
+-v /tmp/webroot/shared1/:/tmp/webroot/shared1/ <br />
+-v /tmp/webroot/myshare/:/tmp/webroot/myshare/ <br />
+openresty/openresty:centos</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id4">
+<h1>指定提供服务的端口<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h1>
+<p>OPENRESTY_PORT=9992</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="location">
+<h1>配置反向代理的 Location<a class="headerlink" href="#location" title="Permalink to this headline">#</a></h1>
+<p>OPENRESTY_LOCATION=/baidu/</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id5">
+<h1>反向代理到的目标<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h1>
+<p>OPENRESTY_PROXY_PASS=http://www.baidu.com/</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id6">
+<h1>创建用于保存配置的目录<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h1>
+<p>OPENRESTY_CONFIG=/tmp/openresty
+mkdir -p “${OPENRESTY_CONFIG}”</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id7">
+<h1>生成配置文件<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h1>
+<p>cat &lt;&lt; EOT &gt; “${OPENRESTY_CONFIG}”/nginx.conf
+server {
+listen 80;
+location “${OPENRESTY_LOCATION}” {
+proxy_pass “${OPENRESTY_PROXY_PASS}”;
+}
+}
+EOT</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id8">
+<h1>启动服务<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h1>
+<p>docker run -d –rm <br />
+-p ${OPENRESTY_PORT}:80 <br />
+-v “${OPENRESTY_CONFIG}”:/etc/nginx/conf.d/ <br />
+openresty/openresty:centos</p>
+<p>https://registry.hub.docker.com/r/bitnami/openresty</p>
+<p>参考：https://github.com/openresty/lua-nginx-module</p>
+</div>
+
+<div class="section">
+   
+</div>
+
+              </div>
+              
+<!-- Add a comment box underneath the page's content -->
+<script src="https://giscus.app/client.js"
+        data-repo="choldgraf/choldgraf.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk1MTIzNzA1NA=="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOAw3Qvs4CAV4E"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, YPY.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="方法一：WRK" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://predictablynoisy.com/posts/压力测试/" />
+  
+<meta property="og:description" content="Example： 比较三个应用：./wrk -t12 -c400 -d30s http://172.19.13.51:8082/annualdata/user/CasLogin./wrk -t12 -c400 -d30s http://172.19.13.47:8080/annualdata/user/CasLogin./wrk -t12 -c400 -d30s http://172.19...." />
+  
+<meta property="og:image" content="https://predictablynoisy.com/_static/profile-bw.png" />
+  
+<meta property="og:image:alt" content="方法一：WRK" />
+  
+    <title>方法一：WRK &#8212; Just A Blog  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about/" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="Just A Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../">
+<p class="title">Just A Blog</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../about/">
+  About me
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../blog/">
+  Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items">
+<h3>
+  <a href="../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../ios/ios app 降级/"
+      >26 March - 准备工作</a
+    >
+  </li>
+  
+  <li>
+    <a href="../Academic/how to use endnote importing dc and fulltext /"
+      >26 March - How to import metedata and fulltext in endnote?</a
+    >
+  </li>
+  
+  <li>
+    <a href="../Academic/研究数据/"
+      >23 March - 研究数据资源汇集</a
+    >
+  </li>
+  
+  <li>
+    <a href="../Health/腰疼根源与判断.一个来自youtube的方法/"
+      >12 March - Low back pain test and train</a
+    >
+  </li>
+  
+  <li>
+    <a href="../sphinx/sphinx_bootstrap_theme/"
+      >02 March - sphinx bootstrap theme</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../blog/2022/">2022 (13)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/2021/">2021 (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../blog/category/">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../blog/category/academic/">Academic (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/category/health/">Health (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/category/server/">Server (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/category/skill/">Skill (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/category/tech/">Tech (10)</a>
+  </li>
+   
+</ul>
+
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   方法一：WRK
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jmeter">
+   方法二：jmeter
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+
+              <div>
+                 <div class="section" id="wrk">
+<h1>方法一：WRK<a class="headerlink" href="#wrk" title="Permalink to this headline">#</a></h1>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/wg/wrk.git  
+<span class="nb">cd</span> wrk  
+make
+</pre></div>
+</div>
+<p>Example：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./wrk -t12 -c400 -d30s http://127.0.0.1:8080/jartto
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>参数说明：
+-c：HTTP 连接数，每一个线程处理 N = 连接数/线程数
+-d：持续时间，2s，2m，2h
+-t：总的线程数
+-s：脚本，可以是 Lua 脚本
+-H：增加 HTTP header，例如：User-Agent: jartto
+--latency：输出时间统计的细节
+--timeout：超时时间
+</pre></div>
+</div>
+<p>比较三个应用：
+./wrk -t12 -c400 -d30s http://172.19.13.51:8082/annualdata/user/CasLogin
+./wrk -t12 -c400 -d30s http://172.19.13.47:8080/annualdata/user/CasLogin
+./wrk -t12 -c400 -d30s http://172.19.13.41:8086/annualdata/user/CasLogin
+./wrk -t12 -c400 -d30s https://lib.gdufe.edu.cn/annualdata/user/CasLogin</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@localhost wrk<span class="o">]</span><span class="c1"># ./wrk -t12 -c400 -d30s http://172.19.13.51:8082/annualdata/user/CasLogin</span>
+Running 30s <span class="nb">test</span> @ http://172.19.13.51:8082/annualdata/user/CasLogin
+  <span class="m">12</span> threads and <span class="m">400</span> connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     <span class="m">1</span>.01s   <span class="m">548</span>.02ms   <span class="m">2</span>.00s    <span class="m">62</span>.03%
+    Req/Sec    <span class="m">27</span>.78     <span class="m">22</span>.82   <span class="m">140</span>.00     <span class="m">79</span>.75%
+  <span class="m">3887</span> requests <span class="k">in</span> <span class="m">30</span>.07s, <span class="m">1</span>.19MB <span class="nb">read</span>
+  Socket errors: connect <span class="m">0</span>, <span class="nb">read</span> <span class="m">0</span>, write <span class="m">0</span>, timeout <span class="m">1156</span>
+  Non-2xx or 3xx responses: <span class="m">3887</span>
+Requests/sec:    <span class="m">129</span>.26
+Transfer/sec:     <span class="m">40</span>.40KB
+
+<span class="o">[</span>root@localhost wrk<span class="o">]</span><span class="c1"># ./wrk -t12 -c400 -d30s http://172.19.13.47:8080/annualdata/user/CasLogin</span>
+Running 30s <span class="nb">test</span> @ http://172.19.13.47:8080/annualdata/user/CasLogin
+  <span class="m">12</span> threads and <span class="m">400</span> connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   <span class="m">556</span>.25ms  <span class="m">395</span>.18ms   <span class="m">2</span>.00s    <span class="m">72</span>.69%
+    Req/Sec    <span class="m">67</span>.60     <span class="m">43</span>.11   <span class="m">240</span>.00     <span class="m">61</span>.49%
+  <span class="m">18108</span> requests <span class="k">in</span> <span class="m">30</span>.26s, <span class="m">5</span>.53MB <span class="nb">read</span>
+  Socket errors: connect <span class="m">0</span>, <span class="nb">read</span> <span class="m">0</span>, write <span class="m">0</span>, timeout <span class="m">857</span>
+  Non-2xx or 3xx responses: <span class="m">18108</span>
+Requests/sec:    <span class="m">598</span>.37
+Transfer/sec:    <span class="m">187</span>.04KB
+
+<span class="o">[</span>root@localhost wrk<span class="o">]</span><span class="c1"># ./wrk -t12 -c400 -d30s https://lib.gdufe.edu.cn/annualdata/user/CasLogin</span>
+Running 30s <span class="nb">test</span> @ https://lib.gdufe.edu.cn/annualdata/user/CasLogin
+  <span class="m">12</span> threads and <span class="m">400</span> connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   <span class="m">180</span>.11ms   <span class="m">60</span>.50ms <span class="m">239</span>.97ms   <span class="m">70</span>.00%
+    Req/Sec     <span class="m">9</span>.00     <span class="m">12</span>.73    <span class="m">18</span>.00    <span class="m">100</span>.00%
+  <span class="m">20</span> requests <span class="k">in</span> <span class="m">30</span>.05s, <span class="m">7</span>.50KB <span class="nb">read</span>
+  Socket errors: connect <span class="m">81363</span>, <span class="nb">read</span> <span class="m">0</span>, write <span class="m">0</span>, timeout <span class="m">0</span>
+  Non-2xx or 3xx responses: <span class="m">20</span>
+Requests/sec:      <span class="m">0</span>.67
+Transfer/sec:     <span class="m">255</span>.60B
+
+<span class="o">[</span>root@localhost wrk<span class="o">]</span><span class="c1"># ./wrk -t12 -c400 -d30s http://172.19.13.41:8086/annualdata/user/CasLogin</span>
+Running 30s <span class="nb">test</span> @ http://172.19.13.41:8086/annualdata/user/CasLogin
+  <span class="m">12</span> threads and <span class="m">400</span> connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   <span class="m">813</span>.04ms  <span class="m">478</span>.39ms   <span class="m">2</span>.00s    <span class="m">63</span>.32%
+    Req/Sec    <span class="m">44</span>.48     <span class="m">31</span>.61   <span class="m">190</span>.00     <span class="m">65</span>.62%
+  <span class="m">12851</span> requests <span class="k">in</span> <span class="m">30</span>.05s, <span class="m">3</span>.92MB <span class="nb">read</span>
+  Socket errors: connect <span class="m">0</span>, <span class="nb">read</span> <span class="m">0</span>, write <span class="m">0</span>, timeout <span class="m">723</span>
+  Non-2xx or 3xx responses: <span class="m">12851</span>
+Requests/sec:    <span class="m">427</span>.60
+Transfer/sec:    <span class="m">133</span>.69KB
+</pre></div>
+</div>
+</div>
+<div class="section" id="jmeter">
+<h1>方法二：jmeter<a class="headerlink" href="#jmeter" title="Permalink to this headline">#</a></h1>
+<p>apache-jmeter-X.Y/bin/jmeter.bat</p>
+</div>
+
+<div class="section">
+   
+</div>
+
+              </div>
+              
+<!-- Add a comment box underneath the page's content -->
+<script src="https://giscus.app/client.js"
+        data-repo="choldgraf/choldgraf.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk1MTIzNzA1NA=="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOAw3Qvs4CAV4E"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, YPY.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

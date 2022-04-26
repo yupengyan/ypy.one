@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="准备工作" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://predictablynoisy.com/posts/ios/ios app 降级/" />
+  
+<meta property="og:description" content="#IOS App 安全降级 此教材是利用官方app store进行降级下载，最具安全性。 img.png Fiddle，用于抓包、置换。, iTunes 12.6.5 ，最后一个具有app store的iTunes.. 步骤: 打开iTunes，在app store里面搜索到目标app。如：outline。 alt img, 打开Fiddle，并设置：菜单 Tools -> Options ..." />
+  
+<meta property="og:image" content="https://predictablynoisy.com/_static/profile-bw.png" />
+  
+<meta property="og:image:alt" content="准备工作" />
+  
+    <title>准备工作 &#8212; Just A Blog  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="Just A Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../../">
+<p class="title">Just A Blog</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about/">
+  About me
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../blog/">
+  Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  26 March 2022 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../../blog/author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="../../../blog/language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../../blog/category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="../../../blog/tag/ios/">ios</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../Academic/how to use endnote importing dc and fulltext /"
+      >26 March - How to import metedata and fulltext in endnote?</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Academic/研究数据/"
+      >23 March - 研究数据资源汇集</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Health/腰疼根源与判断.一个来自youtube的方法/"
+      >12 March - Low back pain test and train</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../sphinx/sphinx_bootstrap_theme/"
+      >02 March - sphinx bootstrap theme</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../sphinx/sphinx_markdown/"
+      >02 March - Sphinx对Markdown文件的支持</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/2022/">2022 (13)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2021/">2021 (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../blog/category/">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/category/academic/">Academic (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/health/">Health (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/server/">Server (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/skill/">Skill (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/tech/">Tech (10)</a>
+  </li>
+   
+</ul>
+
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   准备工作
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   步骤
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+
+              <div>
+                 <p>#IOS App 安全降级
+此教材是利用官方app store进行降级下载，最具安全性。<br />
+<img alt="img.png" src="../../../_images/img.png" /></p>
+<div class="section" id="id1">
+<h1>准备工作<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<ol class="simple">
+<li><p>Fiddle，用于抓包、置换。</p></li>
+<li><p>iTunes 12.6.5 ，最后一个具有app store的iTunes.</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h1>步骤<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
+<ol class="simple">
+<li><p>打开iTunes，在app store里面搜索到目标app。如：outline。
+<img alt="alt img" src="../../../_images/ios-app-downgrade-1.png" /></p></li>
+<li><p>打开Fiddle，并设置：菜单 Tools -&gt; Options -&gt; HTTPS , 选择上Capture HTTPS CONNECTs…按OK，Fiddle的证书会安装到系统。<br />
+<img alt="alt img" src="../../../_images/ios-app-downgrade-2.png" /></p></li>
+<li><p><a class="reference external" href="https://tools.lancely.tech/apple/app-search">查找</a> 好需要降级App的版本ID，并复制。如：Outline 1.1.1版本ID：827611402
+<img alt="alt img" src="../../../_images/ios-app-downgrade-3.png" /></p></li>
+<li><p>准备拦截。进入Fiddler工具，点击快捷键「F11」，左下角会出现一个红色的「T」，Fiddler便开始进行拦截。
+<img alt="alt img" src="../../../_images/ios-app-downgrade-4.png" /></p></li>
+<li><p>在iTurnes点击下载软件，回到Fiddler界面，找到类似p10-buy开头的URL双击，然后右边绿色按钮Run to Completion.
+<img alt="alt img" src="../../../_images/ios-app-downgrade-5.png" /></p></li>
+<li><p>Fiddler界面,等待p100buy…这条请求的完成，双击；在右边，TextView找到如图2的位置，修改成之前准备的ID，然后点击如图3的绿色按钮Run to Completion.<br />
+<img alt="alt img" src="../../../_images/ios-app-downgrade-6.png" /></p></li>
+<li><p>在iTurnes看到app已经在下载，就可以关闭Fiddler了。下载完成后，在资料库可以找到下载的app。
+<img alt="alt img" src="../../../_images/ios-app-downgrade-7.png" /></p></li>
+</ol>
+<p>##FAQ</p>
+<ol class="simple">
+<li><p>Fiddle不能成功抓包，检查：
+前提条件（Windows系统）：
+1、已设置Fiddler的代理端口
+　　Tools –&gt; Options-&gt; Connections，设置代理端口：8888， 勾选 Allow remote computers to connect，即允许远程计算机连接Fiddler，</p></li>
+</ol>
+<p>注：8888为默认端口号，可修改，但需注意两点，一是本机空闲端口，二是手机代理设置时要与fiddler的端口一致。</p>
+<p>2、已设置解密HTTPS的网络数据
+　　Tools –&gt; Options-&gt; Https，勾选”Decrypt HTTPS traffic”、”Ignore server certificate errors。
+　解决方案：
+　经一番波折后发现，是因为未安装证书。
+　在Tools –&gt; Options-&gt; Https中点击Actions-&gt;Trust Root Certificate，进行安装证书，重启fiddler，然后再抓包就可以看到内容 了。
+　（如果是要使用浏览器，记得在浏览器中设置代理，这里就不多说了）</p>
+<p>代理的问题….office pc 搞不定，在戴尔上面OK！</p>
+<ol class="simple">
+<li><p>6.57版本</p></li>
+</ol>
+<p>推荐微信6.57（821589898）版本。这个版本的微信该有的基本功能都有了，但是内存和运存比较低。相比牺牲功能来换取内存，这个版本是最合适的。</p>
+<p>##参考：</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/136952051">iOS App 任意版本降级教程（新手向）</a></p></li>
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/101541667">硬核！完美降级iOS应用，降级任意版本</a></p></li>
+<li><p><a class="reference external" href="https://tools.lancely.tech/apple/app-search">App历史版本查询</a></p></li>
+</ol>
+</div>
+
+<div class="section">
+    
+
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../../Academic/how to use endnote importing dc and fulltext /">
+      <i class="fa fa-arrow-circle-left"></i> How to import metedata and fulltext in endnote?
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+<!-- Add a comment box underneath the page's content -->
+<script src="https://giscus.app/client.js"
+        data-repo="choldgraf/choldgraf.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk1MTIzNzA1NA=="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOAw3Qvs4CAV4E"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, YPY.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

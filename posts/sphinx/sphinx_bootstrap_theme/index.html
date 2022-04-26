@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="sphinx bootstrap theme" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://predictablynoisy.com/posts/sphinx/sphinx_bootstrap_theme/" />
+  
+<meta property="og:description" content="安装: 安装依赖, 编辑conf.py配置, 个性化配置 3.1 主题选项 编辑conf.py，增加以下配置内容：. 参考: sphinx-bootstrap-theme." />
+  
+<meta property="og:image" content="https://predictablynoisy.com/_static/profile-bw.png" />
+  
+<meta property="og:image:alt" content="sphinx bootstrap theme" />
+  
+    <title>sphinx bootstrap theme &#8212; Just A Blog  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="Just A Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../../">
+<p class="title">Just A Blog</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about/">
+  About me
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../blog/">
+  Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  02 March 2022 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../../blog/author/yu-pengyan/">yu pengyan</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="../../../blog/language/english/">English</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../../blog/category/tech/">Tech</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="../../../blog/tag/sprinx/">sprinx</a>   
+  <a href="../../../blog/tag/bootstrap/">bootstrap</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../ios/ios app 降级/"
+      >26 March - 准备工作</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Academic/how to use endnote importing dc and fulltext /"
+      >26 March - How to import metedata and fulltext in endnote?</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Academic/研究数据/"
+      >23 March - 研究数据资源汇集</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../Health/腰疼根源与判断.一个来自youtube的方法/"
+      >12 March - Low back pain test and train</a
+    >
+  </li>
+  
+  <li>
+    <a href="../sphinx_markdown/"
+      >02 March - Sphinx对Markdown文件的支持</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/2022/">2022 (13)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2021/">2021 (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../blog/category/">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/category/academic/">Academic (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/health/">Health (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/server/">Server (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/skill/">Skill (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/tech/">Tech (10)</a>
+  </li>
+   
+</ul>
+
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   安装
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   参考
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="sphinx-bootstrap-theme">
+<h1>sphinx bootstrap theme<a class="headerlink" href="#sphinx-bootstrap-theme" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id1">
+<h2>安装<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<ol>
+<li><p>安装依赖</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> pip install sphinx_bootstrap_theme
+</pre></div>
+</div>
+</li>
+<li><p>编辑conf.py配置</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># At the top.</span>
+import sphinx_bootstrap_theme
+
+<span class="c1"># ...</span>
+
+<span class="c1"># Activate the theme.</span>
+<span class="nv">html_theme</span> <span class="o">=</span> <span class="s1">&#39;bootstrap&#39;</span>
+<span class="nv">html_theme_path</span> <span class="o">=</span> sphinx_bootstrap_theme.get_html_theme_path<span class="o">()</span>    
+</pre></div>
+</div>
+</li>
+<li><p>个性化配置<br />
+3.1 主题选项
+编辑conf.py，增加以下配置内容：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># (Optional) Logo. Should be small enough to fit the navbar (ideally 24x24).</span>
+<span class="c1"># Path should be relative to the ``_static`` files directory.</span>
+<span class="nv">html_logo</span> <span class="o">=</span> <span class="s2">&quot;my_logo.png&quot;</span>
+
+<span class="c1"># Theme options are theme-specific and customize the look and feel of a</span>
+<span class="c1"># theme further.</span>
+<span class="nv">html_theme_options</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="c1"># Navigation bar title. (Default: ``project`` value)</span>
+    <span class="s1">&#39;navbar_title&#39;</span>: <span class="s2">&quot;Demo&quot;</span>,
+
+    <span class="c1"># Tab name for entire site. (Default: &quot;Site&quot;)</span>
+    <span class="s1">&#39;navbar_site_name&#39;</span>: <span class="s2">&quot;Site&quot;</span>,
+
+    <span class="c1"># A list of tuples containing pages or urls to link to.</span>
+    <span class="c1"># Valid tuples should be in the following forms:</span>
+    <span class="c1">#    (name, page)                 # a link to a page</span>
+    <span class="c1">#    (name, &quot;/aa/bb&quot;, 1)          # a link to an arbitrary relative url</span>
+    <span class="c1">#    (name, &quot;http://example.com&quot;, True) # arbitrary absolute url</span>
+    <span class="c1"># Note the &quot;1&quot; or &quot;True&quot; value above as the third argument to indicate</span>
+    <span class="c1"># an arbitrary url.</span>
+    <span class="s1">&#39;navbar_links&#39;</span>: <span class="o">[</span>
+        <span class="o">(</span><span class="s2">&quot;Examples&quot;</span>, <span class="s2">&quot;examples&quot;</span><span class="o">)</span>,
+        <span class="o">(</span><span class="s2">&quot;Link&quot;</span>, <span class="s2">&quot;http://example.com&quot;</span>, True<span class="o">)</span>,
+    <span class="o">]</span>,
+
+    <span class="c1"># Render the next and previous page links in navbar. (Default: true)</span>
+    <span class="s1">&#39;navbar_sidebarrel&#39;</span>: True,
+
+    <span class="c1"># Render the current pages TOC in the navbar. (Default: true)</span>
+    <span class="s1">&#39;navbar_pagenav&#39;</span>: True,
+
+    <span class="c1"># Tab name for the current pages TOC. (Default: &quot;Page&quot;)</span>
+    <span class="s1">&#39;navbar_pagenav_name&#39;</span>: <span class="s2">&quot;Page&quot;</span>,
+
+    <span class="c1"># Global TOC depth for &quot;site&quot; navbar tab. (Default: 1)</span>
+    <span class="c1"># Switching to -1 shows all levels.</span>
+    <span class="s1">&#39;globaltoc_depth&#39;</span>: <span class="m">2</span>,
+
+    <span class="c1"># Include hidden TOCs in Site navbar?</span>
+    <span class="c1">#</span>
+    <span class="c1"># Note: If this is &quot;false&quot;, you cannot have mixed ``:hidden:`` and</span>
+    <span class="c1"># non-hidden ``toctree`` directives in the same page, or else the build</span>
+    <span class="c1"># will break.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Values: &quot;true&quot; (default) or &quot;false&quot;</span>
+    <span class="s1">&#39;globaltoc_includehidden&#39;</span>: <span class="s2">&quot;true&quot;</span>,
+
+    <span class="c1"># HTML navbar class (Default: &quot;navbar&quot;) to attach to &lt;div&gt; element.</span>
+    <span class="c1"># For black navbar, do &quot;navbar navbar-inverse&quot;</span>
+    <span class="s1">&#39;navbar_class&#39;</span>: <span class="s2">&quot;navbar navbar-inverse&quot;</span>,
+
+    <span class="c1"># Fix navigation bar to top of page?</span>
+    <span class="c1"># Values: &quot;true&quot; (default) or &quot;false&quot;</span>
+    <span class="s1">&#39;navbar_fixed_top&#39;</span>: <span class="s2">&quot;true&quot;</span>,
+
+    <span class="c1"># Location of link to source.</span>
+    <span class="c1"># Options are &quot;nav&quot; (default), &quot;footer&quot; or anything else to exclude.</span>
+    <span class="s1">&#39;source_link_position&#39;</span>: <span class="s2">&quot;nav&quot;</span>,
+
+    <span class="c1"># Bootswatch (http://bootswatch.com/) theme.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Options are nothing (default) or the name of a valid theme</span>
+    <span class="c1"># such as &quot;cosmo&quot; or &quot;sandstone&quot;.</span>
+    <span class="c1">#</span>
+    <span class="c1"># The set of valid themes depend on the version of Bootstrap</span>
+    <span class="c1"># that&#39;s used (the next config option).</span>
+    <span class="c1">#</span>
+    <span class="c1"># Currently, the supported themes are:</span>
+    <span class="c1"># - Bootstrap 2: https://bootswatch.com/2</span>
+    <span class="c1"># - Bootstrap 3: https://bootswatch.com/3</span>
+    <span class="s1">&#39;bootswatch_theme&#39;</span>: <span class="s2">&quot;yeti&quot;</span>,
+
+    <span class="c1"># Choose Bootstrap version.</span>
+    <span class="c1"># Values: &quot;3&quot; (default) or &quot;2&quot; (in quotes)</span>
+    <span class="s1">&#39;bootstrap_version&#39;</span>: <span class="s2">&quot;3&quot;</span>,
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>参考<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ryan-roemer.github.io/sphinx-bootstrap-theme/README.html#installation">sphinx-bootstrap-theme</a></p></li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+    
+
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../sphinx_markdown/">
+      <i class="fa fa-arrow-circle-left"></i> Sphinx对Markdown文件的支持
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     
+    <a href="../../Health/腰疼根源与判断.一个来自youtube的方法/">
+      Low back pain test and train <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+<!-- Add a comment box underneath the page's content -->
+<script src="https://giscus.app/client.js"
+        data-repo="choldgraf/choldgraf.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk1MTIzNzA1NA=="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOAw3Qvs4CAV4E"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, YPY.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
