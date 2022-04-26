@@ -7,6 +7,7 @@ def docs(session):
     session.install('-r', 'requirements.txt')
     session.run('python','post_update.py')
     session.run(*'sphinx-build -nW --keep-going -b dirhtml . _build/dirhtml'.split())
+    session.run(*'sphinx-build -nW --keep-going -b dirhtml . _build/dirhtml'.split())
     #session.run(*'sphinx-build -nW --keep-going -b dirhtml . ./../ypy.one'.split())
     session.log("open _build/dirhtml/index.html")
 
